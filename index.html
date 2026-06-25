@@ -44,12 +44,12 @@
             const url = document.getElementById('urlInput').value;
             if (!url) { alert("Masukkan link dulu!"); return; }
             
-
-            let targetUrl = "https://ssstik.io/id?url=" + encodeURIComponent(url);
-            if(type === 'mp3') targetUrl = "https://snapsave.app/id";
+            // Mengarahkan langsung ke hasil unduhan (Auto-redirect)
+            let baseUrl = "";
+            if(type === 'normal') baseUrl = "https://ssstik.io/id?url=";
+            else if(type === 'hd') baseUrl = "https://snapsave.app/id/download?url=";
+            else if(type === 'mp3') baseUrl = "https://snapsave.app/id/music/download?url=";
             
-            window.open(targetUrl, "_blank");
+            window.open(baseUrl + encodeURIComponent(url), "_blank");
         }
     </script>
-</body>
-</html>
